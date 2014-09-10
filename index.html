@@ -1,0 +1,200 @@
+<html>
+
+    <head>
+
+        <title>ReactIRC</title>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation-essential/5.3.3/css/foundation.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway'
+        rel='stylesheet' type='text/css'>
+        <script
+            src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+        <link rel='stylesheet'
+        href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/solarized_dark.min.css'>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </head>
+
+    <body>
+
+        <div class="row">
+
+            <div class="large-12 columns" style="margin-top:3em;">
+                <h1 style="font-family: 'Raleway', sans-serif;">ReactIRC</h1>
+                <hr>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="large-12 columns">
+
+                <h4 style="color:grey;">ReactIRC is a flask-inspired library for developing IRC
+                    bots. It comes with an embedded web server for receiving POST requests
+                    from webhook enabled services.</h4>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+
+            <div class="large-12 columns">
+
+                <h2 style="font-family: 'Raleway', sans-serif">Install</h2>
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="large-6 columns">
+
+                <h4 style="font-family: 'Raleway', sans-serif"><center>Git</center></h4>
+
+                <pre><code class="bash">$ git clone \
+http://git.citruspi.io/citruspi/ReactIRC.git
+$ cd ReactIRC
+$ python setup.py install</code></pre>
+
+            </div>
+
+            <div class="large-6 columns">
+
+                <h4 style="font-family: 'Raleway', sans-serif"><center>PyPi</center></h4>
+
+                <pre><code class="bash">$ pip install reactirc</code></pre>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+
+        <div class="row">
+
+            <div class="large-12 columns">
+                <h2 style="font-family: 'Raleway', sans-serif">Examples</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="large-4 columns">
+                <h3 style="font-family: 'Raleway', sans-serif">Greeter Bot</h3>
+
+                Greeter Bot listens for messages which match the pattern
+                <code>Hey, my name is (name)</code> and replies by greeting the user
+                with <code>Hey there (name)!</code>.
+            </div>
+
+            <div class="large-8 columns">
+
+                <pre><code class="python">#!/usr/bin/python
+from ReactIRC import Bot
+
+bot = Bot()
+
+@bot.on(r'^Hey, my name is (.*)$')
+def greeter(name):
+
+    return 'Hey there %s!' % name
+
+bot.monitor(nick='bot', channels='#bots')
+</code></pre>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+
+            <div class="large-4 columns">
+                <h3 style="font-family: 'Raleway', sans-serif">Karma Bot</h3>
+
+                Karma Bot manages user karma. User's can <code>++</code> and <code>--</code> each other to increase and decrease karma. Simply entering <code>karma</code> will return your karma count, and adding a user's name to the end (<code>karma citruspi</code>) will return the karma count for the targetted user.
+            </div>
+
+            <div class="large-8 columns">
+
+                <pre><code class="python">#!/usr/bin/python
+from ReactIRC import Bot
+
+bot = Bot()
+
+scores = {}
+
+@bot.on(r'^karma$')
+@bot.on(r'^karma ([\S]+)$')
+def karma_status(user=None):
+
+    if user is None:
+
+        user = irc.context['sender']
+
+    if user not in scores.keys():
+
+        return '%s has 0 karma' % user
+
+    else:
+
+        return '%s has %s karma' % (user, scores[user])
+
+@bot.on(r'^([\S]+)(\+\+|\-\-){1}$')
+def karma_adjustment(user, direction):
+
+    if user not in scores.keys():
+
+        scores[user] = 0
+
+    if direction == '--':
+
+        scores[user] -= 1
+
+    elif direction == '++':
+
+        scores[user] += 1
+
+bot.monitor(nick='bot', channels='#bots')
+</code></pre>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="large-12 columns">
+
+                <br>
+                <hr>
+
+            </div>
+
+        <div class="row">
+
+            <div class="large-6 columns">
+
+                <h3 style="font-family: 'Raleway', sans-serif"><small>made in New York with &hearts; by @citruspi</small></h3>
+
+            </div>
+
+            <div class="large-6 columns">
+
+                <h3 class="right" style="font-family: 'Raleway', sans-serif"><small>copyright 2014 under MIT</small></h3>
+
+            </div>
+
+        </div>
+
+        <br>
+
+    </body>
+
+</html>
