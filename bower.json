@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "highlightjs": "~8.4.0"
+    "highlightjs": "~8.4.0",
+    "foundation": "~5.5.1"
   }
 }
