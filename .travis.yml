@@ -1,0 +1,26 @@
+language: node_js
+
+install:
+- npm install -g gulp
+- npm install -g bower
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+before_script:
+- npm install
+- bower install
+
+script: return 0
+
+before_deploy: make release
+
+deploy:
+  provider: s3
+  access_key_id: AKIAIKAOQMWIKVZMP4BQ
+  secret_access_key:
+    secure: lhof3C+Y/YFDdo3PvxwIYlwI/U8PhPH3VMX2l9wZvOCwf5z0COVV63XJTtsgdZ8Zi4PPzeyJupjVKDlJ3mzG8vSqdiQi6gbYSp+e28f60k7vP+4FEZ3GtQiDA9mUtcfeFRbYox+Rkw6yiXUCkBOG/d4jg2tHk/AgwxZRoVXv3Vk=
+  bucket: io.citruspi.reactirc
+  skip_cleanup: true
+  local-dir: release
+  acl: public_read
+  on:
+    repo: citruspi/reactirc.citruspi.io
