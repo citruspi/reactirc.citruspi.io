@@ -1,0 +1,21 @@
+body {
+    font-family: "proxima-nova", sans-serif;
+}
+
+.highlight {
+    border-radius: 4px;
+    margin-bottom: 2.5rem;
+}
+
+.highlight pre {
+    margin: 0rem;
+    padding: 1rem 1.5rem;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.highlight span {
+    font-weight: 400;
+    font-style: normal;
+    font-family: "source-code-pro", "anonymous-pro", monospace;
+}
