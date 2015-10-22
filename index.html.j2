@@ -1,13 +1,9 @@
 <html>
-
     <head>
-
         <title>{{title}}</title>
 
-        <!-- build:css style.css -->
         <link rel="stylesheet" href="/vendor/foundation/css/foundation.css">
         <link rel='stylesheet' href='/static/css/solarized_dark.css'>
-        <!-- endbuild -->
 
         <style>
             body {
@@ -37,72 +33,52 @@
     </head>
 
     <body>
-
         <div class="row">
-
             <div class="large-12 columns" style="margin-top:3em;">
                 <h1>ReactIRC</h1>
                 <hr>
             </div>
-
         </div>
 
         <div class="row">
-
             <div class="large-12 columns">
-
                 <h4 style="color:grey;">ReactIRC is a flask-inspired library for developing IRC
                     bots. It comes with an embedded web server for receiving POST requests
                     from webhook enabled services.</h4>
-
             </div>
-
         </div>
 
         <br>
 
         <div class="row">
-
             <div class="large-12 columns">
-
                 <h2>Install</h2>
                 <hr>
-
             </div>
-
         </div>
 
         <div class="row">
-
             <div class="large-6 columns">
-
                 <h4><center>Git</center></h4>
-
 {% highlight 'bash' %}
 $ git clone http://github.com/citruspi/ReactIRC.git
 $ cd ReactIRC
 $ python setup.py install
 {% endhighlight %}
-
             </div>
 
             <div class="large-6 columns">
-
                 <h4><center>PyPi</center></h4>
-
 {% highlight 'bash' %}
 $ pip install reactirc
 {% endhighlight %}
-
             </div>
-
         </div>
 
         <br>
         <br>
 
         <div class="row">
-
             <div class="large-12 columns">
                 <h2>Examples</h2>
                 <hr>
@@ -110,17 +86,14 @@ $ pip install reactirc
         </div>
 
         <div class="row">
-
             <div class="large-4 columns">
                 <h3>Greeter Bot</h3>
-
                 Greeter Bot listens for messages which match the pattern
                 <code>Hey, my name is (name)</code> and replies by greeting the user
                 with <code>Hey there (name)!</code>.
             </div>
 
             <div class="large-8 columns">
-
 {% highlight 'python', lineno='inline' %}
 from ReactIRC import Bot
 
@@ -139,7 +112,6 @@ bot.monitor(nick='bot', channels='#bots')
         <br>
 
         <div class="row">
-
             <div class="large-4 columns">
                 <h3>Karma Bot</h3>
 
@@ -150,7 +122,6 @@ bot.monitor(nick='bot', channels='#bots')
             </div>
 
             <div class="large-8 columns">
-
 {% highlight 'python', lineno='inline' %}
 from ReactIRC import Bot
 
@@ -182,35 +153,24 @@ def karma_adjustment(user, direction):
 bot.monitor(nick='bot', channels='#bots')
 {% endhighlight %}
             </div>
-
         </div>
 
         <div class="row">
-
             <div class="large-12 columns">
-
                 <br>
                 <hr>
-
             </div>
 
         <div class="row">
-
             <div class="large-6 columns">
-
                 <h3><small>made in New York with &hearts; by @citruspi</small></h3>
-
             </div>
 
             <div class="large-6 columns">
-
                 <h3 class="right"><small>copyright 2015 under MIT</small></h3>
             </div>
-
         </div>
 
         <br>
-
     </body>
-
 </html>
