@@ -8,6 +8,7 @@ install:
 - pip install git+git://github.com/citruspi/ljon.git
 - pip install jinja2-highlight
 - pip install click
+- pip install pillow
 
 script: return 0
 
