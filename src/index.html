@@ -20,6 +20,10 @@
                 src: url(/fonts/Raleway-Regular.ttf);
                 weight: 400;
             }
+
+            code {
+                border-radius: 4px;
+            }
         </style>
     </head>
 
@@ -65,8 +69,7 @@
 
                 <h4 style="font-family: 'Raleway', sans-serif"><center>Git</center></h4>
 
-                <pre><code class="bash">$ git clone \
-http://git.citruspi.io/citruspi/ReactIRC.git
+                <pre><code class="bash">$ git clone http://github.com/citruspi/ReactIRC.git
 $ cd ReactIRC
 $ python setup.py install</code></pre>
 
@@ -104,15 +107,13 @@ $ python setup.py install</code></pre>
 
             <div class="large-8 columns">
 
-                <pre><code class="python">#!/usr/bin/python
-from ReactIRC import Bot
+                <pre><code class="python">from ReactIRC import Bot
 
 bot = Bot()
 
 @bot.on(r'^Hey, my name is (.*)$')
 def greeter(name):
-
-    return 'Hey there %s!' % name
+    return 'Hey there {}!'.format(name)
 
 bot.monitor(nick='bot', channels='#bots')
 </code></pre>
@@ -127,48 +128,40 @@ bot.monitor(nick='bot', channels='#bots')
             <div class="large-4 columns">
                 <h3 style="font-family: 'Raleway', sans-serif">Karma Bot</h3>
 
-                Karma Bot manages user karma. User's can <code>++</code> and <code>--</code> each other to increase and decrease karma. Simply entering <code>karma</code> will return your karma count, and adding a user's name to the end (<code>karma citruspi</code>) will return the karma count for the targetted user.
+                Karma Bot manages user karma. User's can <code>++</code> and
+                <code>--</code> each other to increase and decrease karma.
+                Simply entering <code>karma</code> will return your karma count,
+                and including a user (<code>karma citruspi</code>) will return the karma count for the targetted user.
             </div>
 
             <div class="large-8 columns">
 
-                <pre><code class="python">#!/usr/bin/python
-from ReactIRC import Bot
+                <pre><code class="python">from ReactIRC import Bot
 
 bot = Bot()
-
 scores = {}
 
 @bot.on(r'^karma$')
 @bot.on(r'^karma ([\S]+)$')
 def karma_status(user=None):
-
     if user is None:
-
         user = irc.context['sender']
 
-    if user not in scores.keys():
-
-        return '%s has 0 karma' % user
-
-    else:
-
-        return '%s has %s karma' % (user, scores[user])
+    try:
+        return '{} has {} karma'.format(user, scores[user])
+    except KeyError:
+        return '{} has 0 karma'.format(user)
 
 @bot.on(r'^([\S]+)(\+\+|\-\-){1}$')
 def karma_adjustment(user, direction):
+    try:
+        if direction == '--':
+            scores[user] -= 1
 
-    if user not in scores.keys():
-
+        elif direction == '++':
+            scores[user] += 1
+    except KeyError:
         scores[user] = 0
-
-    if direction == '--':
-
-        scores[user] -= 1
-
-    elif direction == '++':
-
-        scores[user] += 1
 
 bot.monitor(nick='bot', channels='#bots')
 </code></pre>
@@ -195,7 +188,8 @@ bot.monitor(nick='bot', channels='#bots')
 
             <div class="large-6 columns">
 
-                <h3 class="right" style="font-family: 'Raleway', sans-serif"><small>copyright 2014 under MIT</small></h3>
+                <h3 class="right" style="font-family: 'Raleway',
+                    sans-serif"><small>copyright 2015 under MIT</small></h3>
 
             </div>
 
