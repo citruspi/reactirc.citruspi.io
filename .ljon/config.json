@@ -1,0 +1,14 @@
+{
+    "metadata": {
+        "title": "ReactIRC"
+    },
+    "ignore": [
+        ".*\\..+\\.j2.json",
+        "\\./public.*"
+    ],
+    "processors": {
+        "(.*\\..+)\\.j2": {
+            "processor": "jinja"
+        }
+    }
+}

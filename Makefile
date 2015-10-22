@@ -14,16 +14,16 @@ clean:
 
 dist:
 
-	gulp build
+	ljon
 
 release: clean dist
 
 	mkdir release
-	cd dist && zip -r ../dist.zip .
+	cd public && zip -r ../public.zip .
 
-	cp dist.zip release/$(COMMIT).zip
-	cp dist.zip release/$(BRANCH).zip
+	cp public.zip release/$(COMMIT).zip
+	cp public.zip release/$(BRANCH).zip
 
-	rm dist.zip
+	rm public.zip
 
 PHONY: clean
