@@ -10,6 +10,10 @@
         <!-- endbuild -->
 
         <style>
+            body {
+                font-family: "proxima-nova", sans-serif;
+            }
+
             .highlight {
                 border-radius: 4px;
                 margin-bottom: 2.5rem;
@@ -26,12 +30,6 @@
                 font-style: normal;
                 font-family: "source-code-pro", "anonymous-pro", monospace;
             }
-
-            @font-face {
-                font-family: Raleway;
-                src: url(/fonts/Raleway-Regular.ttf);
-                weight: 400;
-            }
         </style>
 
         <script src="https://use.typekit.net/zhe8yze.js"></script>
@@ -43,7 +41,7 @@
         <div class="row">
 
             <div class="large-12 columns" style="margin-top:3em;">
-                <h1 style="font-family: 'Raleway', sans-serif;">ReactIRC</h1>
+                <h1>ReactIRC</h1>
                 <hr>
             </div>
 
@@ -67,7 +65,7 @@
 
             <div class="large-12 columns">
 
-                <h2 style="font-family: 'Raleway', sans-serif">Install</h2>
+                <h2>Install</h2>
                 <hr>
 
             </div>
@@ -78,7 +76,7 @@
 
             <div class="large-6 columns">
 
-                <h4 style="font-family: 'Raleway', sans-serif"><center>Git</center></h4>
+                <h4><center>Git</center></h4>
 
 {% highlight 'bash' %}
 $ git clone http://github.com/citruspi/ReactIRC.git
@@ -90,7 +88,7 @@ $ python setup.py install
 
             <div class="large-6 columns">
 
-                <h4 style="font-family: 'Raleway', sans-serif"><center>PyPi</center></h4>
+                <h4><center>PyPi</center></h4>
 
 {% highlight 'bash' %}
 $ pip install reactirc
@@ -106,7 +104,7 @@ $ pip install reactirc
         <div class="row">
 
             <div class="large-12 columns">
-                <h2 style="font-family: 'Raleway', sans-serif">Examples</h2>
+                <h2>Examples</h2>
                 <hr>
             </div>
         </div>
@@ -114,7 +112,7 @@ $ pip install reactirc
         <div class="row">
 
             <div class="large-4 columns">
-                <h3 style="font-family: 'Raleway', sans-serif">Greeter Bot</h3>
+                <h3>Greeter Bot</h3>
 
                 Greeter Bot listens for messages which match the pattern
                 <code>Hey, my name is (name)</code> and replies by greeting the user
@@ -143,7 +141,7 @@ bot.monitor(nick='bot', channels='#bots')
         <div class="row">
 
             <div class="large-4 columns">
-                <h3 style="font-family: 'Raleway', sans-serif">Karma Bot</h3>
+                <h3>Karma Bot</h3>
 
                 Karma Bot manages user karma. User's can <code>++</code> and
                 <code>--</code> each other to increase and decrease karma.
@@ -200,15 +198,13 @@ bot.monitor(nick='bot', channels='#bots')
 
             <div class="large-6 columns">
 
-                <h3 style="font-family: 'Raleway', sans-serif"><small>made in New York with &hearts; by @citruspi</small></h3>
+                <h3><small>made in New York with &hearts; by @citruspi</small></h3>
 
             </div>
 
             <div class="large-6 columns">
 
-                <h3 class="right" style="font-family: 'Raleway',
-                    sans-serif"><small>copyright 2015 under MIT</small></h3>
-
+                <h3 class="right"><small>copyright 2015 under MIT</small></h3>
             </div>
 
         </div>
