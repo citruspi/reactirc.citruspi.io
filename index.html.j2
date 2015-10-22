@@ -98,9 +98,11 @@ from ReactIRC import Bot
 
 bot = Bot()
 
+
 @bot.on(r'^Hey, my name is (.*)$')
 def greeter(name):
     return 'Hey there {}!'.format(name)
+
 
 bot.monitor(nick='bot', channels='#bots')
 {% endhighlight %}
@@ -127,6 +129,7 @@ from ReactIRC import Bot
 bot = Bot()
 scores = {}
 
+
 @bot.on(r'^karma$')
 @bot.on(r'^karma ([\S]+)$')
 def karma_status(user=None):
@@ -138,6 +141,7 @@ def karma_status(user=None):
     except KeyError:
         return '{} has 0 karma'.format(user)
 
+
 @bot.on(r'^([\S]+)(\+\+|\-\-){1}$')
 def karma_adjustment(user, direction):
     try:
@@ -148,6 +152,7 @@ def karma_adjustment(user, direction):
             scores[user] += 1
     except KeyError:
         scores[user] = 0
+
 
 bot.monitor(nick='bot', channels='#bots')
 {% endhighlight %}
