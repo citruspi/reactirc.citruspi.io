@@ -2,7 +2,8 @@
     <head>
         <title>{{title}}</title>
 
-        <link rel="stylesheet" href="/vendor/foundation/css/foundation.css">
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/skeleton.css">
         <link rel='stylesheet' href='/static/css/solarized_dark.css'>
         <link rel='stylesheet' href='/static/css/style.css'>
 
@@ -11,39 +12,40 @@
     </head>
 
     <body>
+        <div class="container">
         <div class="row">
-            <div class="large-12 columns" style="margin-top:3em;">
+            <div class="twelve columns" style="margin-top:3em;">
                 <h1>ReactIRC</h1>
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <div class="large-12 columns">
-                <h4 style="color:grey;">ReactIRC is a flask-inspired library for developing IRC
+            <div class="twelve columns">
+                <p id="description">ReactIRC is a flask-inspired library for developing IRC
                     bots. It comes with an embedded web server for receiving POST requests
-                    from webhook enabled services.</h4>
+                    from webhook enabled services.</p>
             </div>
         </div>
 
         <br>
 
         <div class="row">
-            <div class="large-12 columns">
+            <div class="twelve columns">
                 <h2>Install</h2>
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <div class="large-6 columns">
+            <div class="six columns">
                 <h4><center>Git</center></h4>
 {% highlight 'bash' %}
 $ pip install git+git://github.com/citruspi/ReactIRC.git
 {% endhighlight %}
             </div>
 
-            <div class="large-6 columns">
+            <div class="six columns">
                 <h4><center>PyPi</center></h4>
 {% highlight 'bash' %}
 $ pip install reactirc
@@ -55,21 +57,21 @@ $ pip install reactirc
         <br>
 
         <div class="row">
-            <div class="large-12 columns">
+            <div class="twelve columns">
                 <h2>Examples</h2>
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="four columns">
                 <h3>Greeter Bot</h3>
                 Greeter Bot listens for messages which match the pattern
                 <code>Hey, my name is (name)</code> and replies by greeting the user
                 with <code>Hey there (name)!</code>.
             </div>
 
-            <div class="large-8 columns">
+            <div class="eight columns">
 {% highlight 'python', lineno='inline' %}
 from ReactIRC import Bot
 
@@ -90,7 +92,7 @@ bot.monitor(nick='bot', channels='#bots')
         <br>
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="four columns">
                 <h3>Karma Bot</h3>
 
                 Karma Bot manages user karma. User's can <code>++</code> and
@@ -99,7 +101,7 @@ bot.monitor(nick='bot', channels='#bots')
                 and including a user (<code>karma citruspi</code>) will return the karma count for the targetted user.
             </div>
 
-            <div class="large-8 columns">
+            <div class="eight columns">
 {% highlight 'python', lineno='inline' %}
 from ReactIRC import Bot
 
@@ -136,5 +138,6 @@ bot.monitor(nick='bot', channels='#bots')
             </div>
         </div>
         <br>
+        </div>
     </body>
 </html>
