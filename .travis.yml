@@ -6,6 +6,7 @@ python:
 install:
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - pip install git+git://github.com/citruspi/ljon.git
+- pip install jinja2-highlight
 
 script: return 0
 

@@ -6,23 +6,30 @@
 
         <!-- build:css style.css -->
         <link rel="stylesheet" href="/vendor/foundation/css/foundation.css">
-        <link rel='stylesheet' href='/vendor/highlightjs/styles/solarized_dark.css'>
+        <link rel='stylesheet' href='/static/css/solarized_dark.css'>
         <!-- endbuild -->
 
-        <!-- build:js script.js -->
-        <script src="/vendor/highlightjs/highlight.pack.js"></script>
-        <!-- endbuild -->
-
-        <script>hljs.initHighlightingOnLoad();</script>
         <style>
+            .highlight {
+                border-radius: 4px;
+                margin-bottom: 2.5rem;
+            }
+
+            .highlight pre {
+                margin: 0rem;
+                padding: 1rem 1.5rem;
+                font-size: 14px;
+            }
+
+            .highlight span {
+                font-weight: 400;
+                font-style: normal;
+            }
+
             @font-face {
                 font-family: Raleway;
                 src: url(/fonts/Raleway-Regular.ttf);
                 weight: 400;
-            }
-
-            code {
-                border-radius: 4px;
             }
         </style>
     </head>
@@ -69,9 +76,11 @@
 
                 <h4 style="font-family: 'Raleway', sans-serif"><center>Git</center></h4>
 
-                <pre><code class="bash">$ git clone http://github.com/citruspi/ReactIRC.git
+{% highlight 'bash' %}
+$ git clone http://github.com/citruspi/ReactIRC.git
 $ cd ReactIRC
-$ python setup.py install</code></pre>
+$ python setup.py install
+{% endhighlight %}
 
             </div>
 
@@ -79,7 +88,10 @@ $ python setup.py install</code></pre>
 
                 <h4 style="font-family: 'Raleway', sans-serif"><center>PyPi</center></h4>
 
-                <pre><code class="bash">$ pip install reactirc</code></pre>
+{% highlight 'bash' %}
+$ pip install reactirc
+{% endhighlight %}
+
             </div>
 
         </div>
@@ -107,7 +119,8 @@ $ python setup.py install</code></pre>
 
             <div class="large-8 columns">
 
-                <pre><code class="python">from ReactIRC import Bot
+{% highlight 'python', lineno='inline' %}
+from ReactIRC import Bot
 
 bot = Bot()
 
@@ -116,7 +129,7 @@ def greeter(name):
     return 'Hey there {}!'.format(name)
 
 bot.monitor(nick='bot', channels='#bots')
-</code></pre>
+{% endhighlight %}
             </div>
 
         </div>
@@ -136,7 +149,8 @@ bot.monitor(nick='bot', channels='#bots')
 
             <div class="large-8 columns">
 
-                <pre><code class="python">from ReactIRC import Bot
+{% highlight 'python', lineno='inline' %}
+from ReactIRC import Bot
 
 bot = Bot()
 scores = {}
@@ -164,7 +178,7 @@ def karma_adjustment(user, direction):
         scores[user] = 0
 
 bot.monitor(nick='bot', channels='#bots')
-</code></pre>
+{% endhighlight %}
             </div>
 
         </div>
