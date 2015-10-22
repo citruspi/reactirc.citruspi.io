@@ -38,15 +38,25 @@
         </div>
 
         <div class="row">
-            <div class="six columns">
-                <h4><center>Git</center></h4>
+            <div class="four columns">
+                <h4><center>manual</center></h4>
+{% highlight 'bash' %}
+$ curl -o reactirc.zip  https://github.com/citruspi/ReactIRC/archive/master.zip
+$ unzip reactirc
+$ cd reactirc
+$ python setup.py install
+{% endhighlight %}
+            </div>
+
+            <div class="four columns">
+                <h4><center>pip + git</center></h4>
 {% highlight 'bash' %}
 $ pip install git+git://github.com/citruspi/ReactIRC.git
 {% endhighlight %}
             </div>
 
-            <div class="six columns">
-                <h4><center>PyPi</center></h4>
+            <div class="four columns">
+                <h4><center>pip + PyPi</center></h4>
 {% highlight 'bash' %}
 $ pip install reactirc
 {% endhighlight %}
