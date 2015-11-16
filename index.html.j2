@@ -133,14 +133,13 @@ def karma_status(user=None):
 
 @bot.on(r'^([\S]+)(\+\+|\-\-){1}$')
 def karma_adjustment(user, direction):
-    try:
-        if direction == '--':
-            scores[user] -= 1
-
-        elif direction == '++':
-            scores[user] += 1
-    except KeyError:
+    if user not in scores:
         scores[user] = 0
+
+    if direction == '--':
+        scores[user] -= 1
+    elif direction == '++':
+        scores[user] += 1
 
 
 bot.monitor(nick='bot', channels='#bots')
